@@ -3,11 +3,11 @@ public class Driver {
 
     }
 
-    public static T breadthFirst(){
+    public static T breadthFirst(int originVertex){
 
     }
 
     public static T depthFirst(){
-        
+
     }
 }
