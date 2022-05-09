@@ -37,6 +37,11 @@ public interface GraphInterface<T> {
   **/
   public void removeEdge(int source, int target);
 
+  /**
+  * Accepts a vertex and an object to assign to it
+  * @param vertex a vertex in the graph
+  * @param newLabel an object to be stored in vertex
+  **/
   public void setLabel(int vetex, T newLabel);
 
   public int size();
