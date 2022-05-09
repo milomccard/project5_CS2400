@@ -23,6 +23,11 @@ public interface GraphInterface<T> {
   **/
   public void addEdge(int source, int target);
 
+  /**
+  * Accepts a vertex and returns an array holding all of its neighbors
+  * @param vertex a vertex whose neighbors we want returned
+  * @returns an array with the vertecies that neighbor the parameter vertex
+  **/
   public int[] neighbors(int vertex);
 
   public void removeEdge(int source, int target);
