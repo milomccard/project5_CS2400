@@ -30,6 +30,11 @@ public interface GraphInterface<T> {
   **/
   public int[] neighbors(int vertex);
 
+  /**
+  * Accepts two verticies and removes the edge between them
+  * @param source a vertex to start at
+  * @param target a vertex to end at
+  **/
   public void removeEdge(int source, int target);
 
   public void setLabel(int vetex, T newLabel);
