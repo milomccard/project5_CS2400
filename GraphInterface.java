@@ -7,6 +7,12 @@ public interface GraphInterface<T> {
   **/
   public T getLabel(int vertex);
 
+  /**
+  * Accepts two vertex position and tests to see if there exists an edge between the two
+  * @param source is the beginning vertex
+  * @param target is the vertex that would be arrived at 
+  * @returns boolean returns a boolean to indicate whether there is an edge
+  **/
   public boolean isEdge(int source, int target);
   
   public void addEdge(int source, int target);
