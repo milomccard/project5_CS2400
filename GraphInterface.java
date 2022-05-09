@@ -15,6 +15,12 @@ public interface GraphInterface<T> {
   **/
   public boolean isEdge(int source, int target);
   
+  /**
+  * Accepts two vertecies and creates an edge in the desired implementation of the graph
+  * @param source is the beginning vertex
+  * @param target is the vertex that would be arrived at 
+  * @returns void
+  **/
   public void addEdge(int source, int target);
 
   public int[] neighbors(int vertex);
