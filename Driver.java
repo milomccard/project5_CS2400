@@ -3,11 +3,14 @@ import java.util.Scanner;
 
 public class Driver {
     public static void main(String args[]){
-
-        runMenu();
-        
+        Graph<String> g1 = createGraph();//creates graph based on project guidelines
+        runMenu(g1);//executes program which performs BFT and DFT
     }
 
+    /**
+     * Creates the graph based on project parameters
+     * @return the created graph
+     */
     static Graph<String> createGraph(){
         Graph<String> g = new Graph<>(9);
 
@@ -55,36 +58,38 @@ public class Driver {
         return g;
     }
 
-    static void runMenu(){
-        Graph<String> g1 = createGraph();
-        String[] vertices = {"A", "B", "C", "D", "E", "F", "G", "H", "I"};
+    /**
+     * Wrapper for program, menu, BFT and DFT traversals
+     */
+    static void runMenu(Graph<String> g1){
+        String[] vertices = {"A", "B", "C", "D", "E", "F", "G", "H", "I"};//keeps track of labels in graph
 
         Scanner user = new Scanner(System.in);
 
         System.out.println("\n\n****** Graph Traversal: Directed Graphs ******");
         System.out.println("\nTraversing the following graph\nwith verticies and adjacencies:\n");
-        g1.printConnections();
+        g1.printConnections();//print adjancecy matrix as vertices and connections
         
         System.out.println("====== Breadth First Traversal ======\n");
         
         int vertex = -1;
         do{
             System.out.print("\nEnter starting vertex, or any non-existing vertex to exit: ");
-            String userInput = user.nextLine().toUpperCase(); 
-            vertex = isVertex(userInput, vertices);
-            if(vertex > -1)
+            String userInput = user.nextLine().toUpperCase();//user enters a vertex 
+            vertex = isVertex(userInput, vertices);//checks if vertex is in graph
+            if(vertex > -1)//if vertex is in graph, perform BFT from that vertex
                 g1.breadthFirstTraversal(userInput);
-        }while(vertex > -1);
+        }while(vertex > -1);//otherwise, continue
 
         System.out.println("\n\n\n====== Depth First Traversal ======\n");
 
         do{
             System.out.print("\nEnter starting vertex, or any non-existing vertex to exit: ");
-            String userInput = user.nextLine().toUpperCase(); 
-            vertex = isVertex(userInput, vertices);
-            if(vertex > -1)
+            String userInput = user.nextLine().toUpperCase();//user enters vertex
+            vertex = isVertex(userInput, vertices);//check if vertex is in graph
+            if(vertex > -1)//if vertex is in graph, perform DFT
                 g1.depthFirstTraversal(userInput);
-        }while(vertex > -1);
+        }while(vertex > -1);//otherwise, continue
 
 
         System.out.println("\nProgram Concluded.");
