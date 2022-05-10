@@ -6,9 +6,9 @@ Milo McCard
 Cong Shen  
 **Additional Features Implemented**
 
-Java Generics  
-Java Interface
-Visual representation of vertices and edges (printConnections())
-screencast: https://youtu.be/1n96Ad1ayAs
+Java Generics <br /> 
+Java Interface<br />
+Visual representation of vertices and edges (printConnections())<br />
+screencast: https://youtu.be/1n96Ad1ayAs<br />
 **Implementation**  
 Adjacency Matrix
