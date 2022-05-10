@@ -44,5 +44,10 @@ public interface GraphInterface<T> {
   **/
   public void setLabel(int vetex, T newLabel);
 
+  
+  /**
+   * Returns the number of vertices
+   * @return the number of vertices
+   */
   public int size();
 }
