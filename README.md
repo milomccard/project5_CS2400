@@ -11,8 +11,8 @@ Java Interface<br />
 Visual representation of vertices and edges (printConnections())<br />
 screencast: https://youtu.be/1n96Ad1ayAs<br />
 **Implementation**  
-Adjacency Matrix
-**Running The Code***
+Adjacency Matrix<br />
+**Running The Code**
 1. Executing Driver.java brings up visual representation of graph<br />
 2. **BFT:** User is prompted to enter (non-casesensitive) label of vertex - e.g. "a", "B"
 3. Program will print BFT in order and wait for next input
