@@ -5,7 +5,7 @@ The CodeToads<br />
 Milo McCard<br />
 Cong Shen<br />
 **Additional Features Implemented**
-+Java Generics<br />
+<br />+Java Generics<br />
 +Java Interface<br />
 +Visual representation of vertices and edges (printConnections())<br />
 +screencast: https://youtu.be/1n96Ad1ayAs<br />
