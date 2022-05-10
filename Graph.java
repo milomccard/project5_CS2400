@@ -2,10 +2,14 @@ import java.util.*;
 
 public class Graph<T> implements GraphInterface<T> {
 
-  private boolean[][] edges;
-  private T[] labels;
-  private boolean[] visitedBFT;
+  private boolean[][] edges;//adjacency matrix
+  private T[] labels;//label array
+  private boolean[] visitedBFT;//array of visited indicies, used for BFT
 
+  /**
+   * Constructor
+   * @param n the number of vertices
+   */
   public Graph(int n){
     
     edges = new boolean[n][n];
@@ -13,21 +17,43 @@ public class Graph<T> implements GraphInterface<T> {
     visitedBFT = new boolean[n];
   }
   
+  /**
+  * Accepts the number of the vertex and returns the object held in the memory location
+  * @param vertex is the integer value of a specific vertex
+  * @retruns T an object held in a specific memory location
+  **/
   @Override
   public T getLabel(int vertex) {
       return labels[vertex];
   }
 
+  /**
+  * Accepts two vertex position and tests to see if there exists an edge between the two
+  * @param source is the beginning vertex
+  * @param target is the vertex that would be arrived at 
+  * @returns boolean returns a boolean to indicate whether there is an edge
+  **/
   @Override
   public boolean isEdge(int source, int target) {
       return edges[source][target];
   }
 
+  /**
+  * Accepts two vertecies and creates an edge in the desired implementation of the graph
+  * @param source is the beginning vertex
+  * @param target is the vertex that would be arrived at 
+  * @returns void
+  **/
   @Override
   public void addEdge(int source, int target) {
       edges[source][target] = true; 
   }
 
+  /**
+  * Accepts a vertex and returns an array holding all of its neighbors
+  * @param vertex a vertex whose neighbors we want returned
+  * @returns an array with the vertecies that neighbor the parameter vertex
+  **/
   @Override
   public int[] neighbors(int vertex) {
       int i;
@@ -48,21 +74,41 @@ public class Graph<T> implements GraphInterface<T> {
       return answer;
   }
 
+  /**
+  * Accepts two verticies and removes the edge between them
+  * @param source a vertex to start at
+  * @param target a vertex to end at
+  **/
   @Override
   public void removeEdge(int source, int target) {
       edges[source][target] = false;
   }
 
+  /**
+  * Accepts a vertex and an object to assign to it
+  * @param vertex a vertex in the graph
+  * @param newLabel an object to be stored in vertex
+  **/
   @Override
   public void setLabel(int vertex, T newLabel) {
       labels[vertex] = newLabel;
   }
 
+  /**
+   * Returns the number of vertices
+   * @return the number of vertices
+   */
   @Override
   public int size() {
       return labels.length;
   }
 
+  /**
+   * Returns the first index of a vertice that is both 
+   * "unvisited" and an edge of the input.  Used for BFT.
+   * @param vertex the vertex from which the returned vertice has an edge
+   * @return an unvisited vertice if found, otherwise -1
+   */
   public int bftHelper(int vertex)//this helper verifies if a vertex is unvisited AND has a connection 
   {
       for(int i=0;i<edges[0].length;i++)
@@ -71,6 +117,11 @@ public class Graph<T> implements GraphInterface<T> {
       return -1;
   }
 
+  /**
+   * Accepts a label of a vertex and prints the
+   * BFT order starting from that vertex
+   * @param origin the label of the vertex to start from
+   */
   public void breadthFirstTraversal(T origin) 
    {
        int startIndex = Arrays.asList(labels).indexOf(origin);//gets index of "origin"
@@ -98,7 +149,14 @@ public class Graph<T> implements GraphInterface<T> {
    }
 
 
-   public int dftHelper(int vertex, boolean[] visited) {//this helper tries to find an unvisited neighbor and returns the first one
+   /**
+    * Accepts the index of a vertex and an array tracking "visited" vertices
+    * Returns the first index of a connected, unvisited neighbor
+    * @param vertex the vertex from which to search for a neighbor
+    * @param visited the array tracking "visited" vertices
+    * @return the first index of an "unvisited" neighbor if found, otherwise -1
+    */
+    public int dftHelper(int vertex, boolean[] visited) {//this helper tries to find an unvisited neighbor and returns the first one
    
     for (int i = 0; i < edges[vertex].length; i++) {
         if (edges[vertex][i] && visited[i] == false)
@@ -107,7 +165,14 @@ public class Graph<T> implements GraphInterface<T> {
     return -1;
     }
 
-   public void depthFirstTraversal(T origin) {
+
+
+    /**
+    * Accepts a label of a vertex and prints the
+    * DFT order starting from that vertex
+    * @param origin the label of the vertex to start from
+    */
+    public void depthFirstTraversal(T origin) {
     
     int startIndex = Arrays.asList(labels).indexOf(origin);//finds index of "origin"
     int n = edges.length;
@@ -136,9 +201,12 @@ public class Graph<T> implements GraphInterface<T> {
     System.out.println();
 }
 
+/**
+ * Prints the adjacency matrix as a list of
+ * vertices and their connections
+ */
 public void printConnections() {
     for (int i = 0; i < edges.length; i++) {
-        //System.out.print(labels[j] + ": ");
         for (int j = 0; j < edges[i].length; j++) {
             if (edges[i][j])
                 System.out.println("\t" + labels[i] + " -> "+ labels[j]);
@@ -146,6 +214,5 @@ public void printConnections() {
         System.out.println();
     }
 }
-
 
 }
